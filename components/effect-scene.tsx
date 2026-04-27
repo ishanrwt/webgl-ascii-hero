@@ -14,7 +14,7 @@ function UserModel(props: ComponentPropsWithoutRef<"group">) {
   const basicMat = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: "#FFA201",
+        color: "#917AFF",
         roughness: 0.12, // Lower = sharper highlights, more contrast
         metalness: 0,
         flatShading: false,
@@ -192,7 +192,7 @@ function SceneWithDelayedComposer({
             color={true}
             characterSet="terminal"
             volumeShading={true}
-            tintColor="#FFC25A"
+            tintColor="#917AFF"
             resolution={resolution}
             mousePos={mousePos}
             postfx={{

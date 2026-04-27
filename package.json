@@ -1,7 +1,7 @@
 {
-  "name": "vortayl",
+  "name": "webgl-ascii-shader",
   "version": "1.0.0",
-  "description": "Vortayl interactive 3D ASCII hero experience",
+  "description": "A WebGL demo featuring a 3D model rendered with React Three Fiber and post-processed into animated ASCII art",
   "private": false,
   "scripts": {
     "dev": "next dev",

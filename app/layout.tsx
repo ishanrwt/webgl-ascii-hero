@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vortayl",
-  description: "Drive your SaaS in the right direction with automatic business intelligence",
+  title: "WebGL ASCII Shader Effect",
+  description: "A beautiful WebGL demo featuring a 3D model rendered with React Three Fiber and post-processed into animated ASCII art using custom shaders.",
 };
 
 export default function RootLayout({
