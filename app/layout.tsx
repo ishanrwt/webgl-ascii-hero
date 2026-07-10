@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  width: "device-width",
+  // Force desktop layout on phones (same idea as "Request Desktop Site")
+  width: 1280,
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({

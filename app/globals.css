@@ -13,8 +13,8 @@
 }
 
 html {
-  max-width: 100%;
-  overflow-x: hidden;
+  min-width: 1280px;
+  overflow-x: auto;
 }
 
 body {
@@ -23,8 +23,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  max-width: 100%;
-  overflow-x: hidden;
+  min-width: 1280px;
+  overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge legacy */
 }
