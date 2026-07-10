@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  width: "device-width",
+  // Same idea as browser "Desktop site": wide CSS viewport, layout breakpoints unchanged
+  width: 980,
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
