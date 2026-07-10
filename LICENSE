@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2025
+Copyright (c) 2025 Egor Shesternin (egorshest)
+Original project: https://github.com/egorshest/webgl-ascii-hero
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,10 @@ SOFTWARE.
 
 ---
 
-**Note on Third-Party Assets:**
+**Attribution:**
 
-The `user-model.glb` file included in `public/models/user-model.glb` is for demonstration purposes only.
-Users should replace it with their own 3D model. See the README.md for more information.
+This project is based on [webgl-ascii-hero](https://github.com/egorshest/webgl-ascii-hero) by Egor Shesternin (egorshest).
+
+Browser functionalities in this fork are implemented by [Ishan](https://github.com/ishanrwt) ([ishanrwt/webgl-ascii-hero](https://github.com/ishanrwt/webgl-ascii-hero)).
+
+No third-party demo `.glb` model is bundled with this fork.

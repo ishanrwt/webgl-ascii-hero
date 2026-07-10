@@ -84,6 +84,7 @@ uniform bool useGlyphAtlas;
 uniform bool volumeShading;
 uniform bool useTintColor;
 uniform vec3 tintColor;
+uniform vec3 backgroundColor;
 
 // Helper functions
 float random(vec2 st) {
@@ -252,7 +253,7 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
   // Volume shading: exaggerate brightness range for glyph selection so shadows = dense, highlights = sparse (3D depth)
   float brightnessForGlyph = brightness;
   if (volumeShading) {
-    brightnessForGlyph = (brightness - 0.5) * 1.6 + 0.5;
+    brightnessForGlyph = (brightness - 0.5) * 2.4 + 0.5;
     brightnessForGlyph = clamp(brightnessForGlyph, 0.0, 1.0);
   }
 
@@ -276,12 +277,12 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
   vec3 finalColor;
   if (colorMode) {
     if (useTintColor) {
-      finalColor = tintColor * charValue;
+      finalColor = mix(backgroundColor, tintColor, charValue);
     } else {
-      finalColor = cellColor.rgb * charValue;
+      finalColor = mix(backgroundColor, cellColor.rgb, charValue);
     }
   } else {
-    finalColor = vec3(brightness * charValue);
+    finalColor = mix(backgroundColor, vec3(brightness), charValue);
   }
 
   // POST-PROCESSING (Tier 1)
@@ -334,6 +335,7 @@ interface AsciiEffectImplOptions {
   glyphTiles?: number
   volumeShading?: boolean
   tintColor?: Vector3 | null
+  backgroundColor?: Vector3
 }
 
 class AsciiEffectImpl extends Effect {
@@ -350,6 +352,7 @@ class AsciiEffectImpl extends Effect {
       glyphTiles = 0,
       volumeShading = false,
       tintColor = null,
+      backgroundColor = new Vector3(0, 0, 0),
     } = options
 
     super("AsciiEffect", fragmentShader, {
@@ -368,6 +371,7 @@ class AsciiEffectImpl extends Effect {
         ["volumeShading", new Uniform(volumeShading)],
         ["useTintColor", new Uniform(!!tintColor)],
         ["tintColor", new Uniform(tintColor || new Vector3(1, 1, 1))],
+        ["backgroundColor", new Uniform(backgroundColor)],
         ["scanlineIntensity", new Uniform(postfx.scanlineIntensity || 0)],
         ["scanlineCount", new Uniform(postfx.scanlineCount || 200)],
         ["targetFPS", new Uniform(postfx.targetFPS || 0)],
@@ -447,6 +451,8 @@ export interface AsciiEffectProps {
   volumeShading?: boolean
   /** Single color for all characters (e.g. "#917AFF"); removes scene lighting gradient */
   tintColor?: string
+  /** Background behind ASCII glyphs */
+  backgroundColor?: string
 }
 
 export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>((props, ref) => {
@@ -461,6 +467,7 @@ export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>((props, ref) =>
     characterSet = "terminal",
     volumeShading = false,
     tintColor: tintColorProp = undefined,
+    backgroundColor: backgroundColorProp = "#000000",
   } = props
 
   const styleMap = { standard: 0, dense: 1, minimal: 2, blocks: 3 }
@@ -471,6 +478,11 @@ export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>((props, ref) =>
     const c = new Color(tintColorProp)
     return new Vector3(c.r, c.g, c.b)
   }, [tintColorProp])
+
+  const backgroundColorVec = useMemo(() => {
+    const c = new Color(backgroundColorProp)
+    return new Vector3(c.r, c.g, c.b)
+  }, [backgroundColorProp])
 
   const glyphTexture = useMemo(() => {
     if (characterSet == null) return null
@@ -506,6 +518,7 @@ export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>((props, ref) =>
           : 0,
         volumeShading,
         tintColor: tintColorVec,
+        backgroundColor: backgroundColorVec,
       }),
     [
       cellSize,
@@ -519,6 +532,7 @@ export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>((props, ref) =>
       characterSet,
       volumeShading,
       tintColorVec,
+      backgroundColorVec,
     ]
   )
 

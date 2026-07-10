@@ -1,10 +1,72 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #050505;
+  --bg-elevated: #0c0c0c;
+  --fg: #f4f4f4;
+  --muted: #8a8a8a;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.28);
+  --font-display: var(--font-syne), "Arial Narrow", sans-serif;
+  --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #000000;
-  color: #ffffff;
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
   overflow-x: hidden;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes preview-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.preview-glow {
+  animation: preview-glow 5s ease-in-out infinite;
+}
+
+.preview-grid {
+  animation: grid-drift 28s linear infinite;
 }

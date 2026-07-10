@@ -129,5 +129,8 @@ MIT License - feel free to use this project for your own purposes.
 
 ## Credits
 
+- Original project by [Egor Shesternin](https://github.com/egorshest) — [egorshest/webgl-ascii-hero](https://github.com/egorshest/webgl-ascii-hero)
+- Support the author: [Buy Me a Coffee](https://buymeacoffee.com/egorbuilds) · [egorbuilds.com](https://egorbuilds.com)
+- Browser functionalities (upload, in-page controls, editor workflow) by [Ishan](https://github.com/ishanrwt) — [ishanrwt/webgl-ascii-hero](https://github.com/ishanrwt/webgl-ascii-hero) · Instagram [@raishancard](https://www.instagram.com/raishancard/?hl=en)
 - ASCII shader inspiration: Classic terminal art and CRT displays
 - Built with [React Three Fiber](https://docs.pmnd.rs/react-three-fiber), [Three.js](https://threejs.org/), and [Next.js](https://nextjs.org/)
