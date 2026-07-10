@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
+import { ViewportFit } from "../components/viewport-fit";
 import "./globals.css";
 
 const syne = Syne({
@@ -31,10 +32,27 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  // Same idea as browser "Desktop site": wide CSS viewport, layout breakpoints unchanged
   width: 980,
   initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
+
+const viewportFitScript = `
+(function () {
+  var w = 980;
+  var s = Math.min(1, window.innerWidth / w);
+  var c = "width=" + w + ", initial-scale=" + s + ", minimum-scale=" + s + ", maximum-scale=" + s + ", user-scalable=no";
+  var m = document.querySelector('meta[name="viewport"]');
+  if (!m) {
+    m = document.createElement("meta");
+    m.setAttribute("name", "viewport");
+    document.head.appendChild(m);
+  }
+  m.setAttribute("content", c);
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -43,9 +61,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: viewportFitScript }} />
+      </head>
       <body
         className={`${syne.variable} ${dmSans.variable} ${ibmPlexMono.variable} antialiased`}
       >
+        <ViewportFit />
         {children}
       </body>
     </html>
