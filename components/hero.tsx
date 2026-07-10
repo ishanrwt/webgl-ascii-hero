@@ -252,7 +252,7 @@ export function Hero() {
   )
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
+    <div className="relative min-h-screen overflow-x-hidden bg-[var(--bg)] text-[var(--fg)]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -302,7 +302,7 @@ export function Hero() {
 
             <div
               ref={previewRef}
-              className={`relative flex min-h-[min(68vh,720px)] w-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:rounded-3xl ${
+              className={`relative flex h-[min(52vh,420px)] w-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:h-[min(68vh,720px)] sm:rounded-3xl ${
                 dragging ? "border-white" : "border-[var(--line-strong)]"
               }`}
               onDragEnter={(e) => {
@@ -351,7 +351,7 @@ export function Hero() {
                     paused={isPaused}
                   />
                 ) : (
-                  <div className="relative flex h-full min-h-[min(60vh,640px)] flex-col items-center justify-center px-6 py-16 text-center">
+                  <div className="relative flex h-full min-h-[min(44vh,360px)] flex-col items-center justify-center px-6 py-12 text-center sm:min-h-[min(60vh,640px)] sm:py-16">
                     <div
                       aria-hidden
                       className="preview-grid pointer-events-none absolute inset-0 opacity-[0.06]"

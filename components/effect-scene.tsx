@@ -240,7 +240,12 @@ function SceneWithDelayedComposer({
           />
         </Suspense>
       ) : null}
-      <OrbitControls enableRotate={false} enableZoom={enableZoom} enablePan={false} />
+      <OrbitControls
+        enableRotate={false}
+        enableZoom={enableZoom}
+        enablePan={false}
+        enableDamping={false}
+      />
       {composerReady && (
         <EffectComposer>
           <AsciiEffect
@@ -323,16 +328,18 @@ export function EffectScene({
       style={{
         width: "100%",
         height: className ? "100%" : "100vh",
-        minHeight: className ? 300 : undefined,
+        minHeight: className ? undefined : undefined,
+        touchAction: "pan-y",
       }}
     >
       <Canvas
         dpr={Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5)}
         camera={{ position: [0, 0, settings.cameraZ], fov: 50 }}
         gl={{ preserveDrawingBuffer: true }}
-        style={{ background: settings.backgroundColor }}
+        style={{ background: settings.backgroundColor, touchAction: "pan-y" }}
         onCreated={({ gl }) => {
           gl.toneMappingExposure = 0.6
+          gl.domElement.style.touchAction = "pan-y"
 
           const handleContextLost = (event: Event) => {
             event.preventDefault()
