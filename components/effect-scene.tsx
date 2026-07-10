@@ -327,8 +327,9 @@ export function EffectScene({
       onMouseLeave={() => setIsHovered(false)}
       style={{
         width: "100%",
+        maxWidth: "100%",
         height: className ? "100%" : "100vh",
-        minHeight: className ? undefined : undefined,
+        overflow: "hidden",
         touchAction: "pan-y",
       }}
     >
@@ -336,10 +337,21 @@ export function EffectScene({
         dpr={Math.min(typeof window !== "undefined" ? window.devicePixelRatio : 1, 1.5)}
         camera={{ position: [0, 0, settings.cameraZ], fov: 50 }}
         gl={{ preserveDrawingBuffer: true }}
-        style={{ background: settings.backgroundColor, touchAction: "pan-y" }}
+        style={{
+          background: settings.backgroundColor,
+          touchAction: "pan-y",
+          width: "100%",
+          height: "100%",
+          maxWidth: "100%",
+          display: "block",
+        }}
         onCreated={({ gl }) => {
           gl.toneMappingExposure = 0.6
           gl.domElement.style.touchAction = "pan-y"
+          gl.domElement.style.display = "block"
+          gl.domElement.style.width = "100%"
+          gl.domElement.style.height = "100%"
+          gl.domElement.style.maxWidth = "100%"
 
           const handleContextLost = (event: Event) => {
             event.preventDefault()

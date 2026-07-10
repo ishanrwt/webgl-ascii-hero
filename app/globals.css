@@ -12,12 +12,18 @@
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 }
 
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
+  max-width: 100%;
   overflow-x: hidden;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge legacy */

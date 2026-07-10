@@ -154,8 +154,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Detail"
           value={settings.cellSize}
-          min={0.8}
-          max={8}
+          min={0.3}
+          max={14}
           step={0.1}
           disabled={disabled}
           display={settings.cellSize.toFixed(1)}
@@ -164,8 +164,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Contrast"
           value={settings.contrastAdjust}
-          min={0.4}
-          max={2.5}
+          min={0.1}
+          max={4}
           step={0.05}
           disabled={disabled}
           display={settings.contrastAdjust.toFixed(2)}
@@ -174,8 +174,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Brightness"
           value={settings.brightnessAdjust}
-          min={-0.5}
-          max={0.5}
+          min={-1}
+          max={1}
           step={0.01}
           disabled={disabled}
           display={settings.brightnessAdjust.toFixed(2)}
@@ -251,8 +251,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Scale"
           value={settings.modelScale}
-          min={0.5}
-          max={10}
+          min={0.1}
+          max={18}
           step={0.1}
           disabled={disabled}
           display={settings.modelScale.toFixed(1)}
@@ -261,8 +261,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Height"
           value={settings.modelY}
-          min={-4}
-          max={2}
+          min={-8}
+          max={6}
           step={0.05}
           disabled={disabled}
           display={settings.modelY.toFixed(2)}
@@ -271,8 +271,8 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
         <SliderRow
           label="Zoom"
           value={settings.cameraZ}
-          min={3}
-          max={14}
+          min={1}
+          max={24}
           step={0.1}
           disabled={disabled}
           display={settings.cameraZ.toFixed(1)}
@@ -291,7 +291,7 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
           label="Ambient"
           value={settings.ambientIntensity}
           min={0}
-          max={1}
+          max={2}
           step={0.01}
           disabled={disabled}
           display={settings.ambientIntensity.toFixed(2)}
@@ -301,7 +301,7 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
           label="Key"
           value={settings.keyLightIntensity}
           min={0}
-          max={10}
+          max={18}
           step={0.1}
           disabled={disabled}
           display={settings.keyLightIntensity.toFixed(1)}
@@ -311,7 +311,7 @@ export function EditorControls({ settings, onChange, disabled }: EditorControlsP
           label="Fill"
           value={settings.fillLightIntensity}
           min={0}
-          max={6}
+          max={12}
           step={0.1}
           disabled={disabled}
           display={settings.fillLightIntensity.toFixed(1)}

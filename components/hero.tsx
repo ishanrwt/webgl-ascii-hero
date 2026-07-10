@@ -293,16 +293,16 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="animate-fade-up-delay-2 grid w-full max-w-7xl gap-5 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <div className="relative">
+        <div className="animate-fade-up-delay-2 grid w-full max-w-7xl grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_300px]">
+          <div className="relative min-w-0 max-w-full overflow-hidden">
             <div
               aria-hidden
-              className="preview-glow pointer-events-none absolute -inset-6 rounded-[2rem] bg-white/[0.04] blur-2xl sm:-inset-8"
+              className="preview-glow pointer-events-none absolute inset-0 rounded-[2rem] bg-white/[0.04] blur-2xl sm:-inset-8 sm:rounded-[2rem]"
             />
 
             <div
               ref={previewRef}
-              className={`relative flex h-[min(52vh,420px)] w-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:h-[min(68vh,720px)] sm:rounded-3xl ${
+              className={`relative flex h-[min(52vh,420px)] w-full max-w-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:h-[min(68vh,720px)] sm:rounded-3xl ${
                 dragging ? "border-white" : "border-[var(--line-strong)]"
               }`}
               onDragEnter={(e) => {
@@ -340,10 +340,10 @@ export function Hero() {
                 </p>
               </div>
 
-              <div className="relative min-h-0 flex-1">
+              <div className="relative min-h-0 min-w-0 max-w-full flex-1 overflow-hidden">
                 {model ? (
                   <EffectScene
-                    className="absolute inset-0 h-full w-full"
+                    className="absolute inset-0 h-full w-full max-w-full"
                     enableZoom={false}
                     modelUrl={model.url}
                     settings={settings}
@@ -451,7 +451,7 @@ export function Hero() {
             )}
           </div>
 
-          <aside className="rounded-2xl border border-[var(--line-strong)] bg-[var(--bg-elevated)] p-5 sm:rounded-3xl lg:max-h-[min(68vh,720px)] lg:overflow-y-auto">
+          <aside className="min-w-0 max-w-full rounded-2xl border border-[var(--line-strong)] bg-[var(--bg-elevated)] p-5 sm:rounded-3xl lg:max-h-[min(68vh,720px)] lg:overflow-y-auto">
             <div className="mb-6 space-y-3">
               <input
                 ref={inputRef}
