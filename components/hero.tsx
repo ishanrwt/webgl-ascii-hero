@@ -279,30 +279,30 @@ export function Hero() {
         </div>
       </header>
 
-      <main className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col items-center px-8 pb-8 pt-6">
-        <div className="animate-fade-up-delay-1 mb-6 max-w-2xl text-center">
+      <main className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col items-center px-4 pb-10 pt-8 sm:px-8 sm:pt-10">
+        <div className="animate-fade-up-delay-1 mb-8 max-w-2xl text-center sm:mb-10">
           <h1
-            className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl"
+            className="text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Live ASCII from your 3D model
           </h1>
-          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-[var(--muted)] sm:text-base">
             Upload a .glb in the browser, tune the shader, and preview instantly.
             Files stay on your device — max 50 MB.
           </p>
         </div>
 
-        <div className="animate-fade-up-delay-2 grid w-full max-w-7xl grid-cols-[minmax(0,1fr)_300px] gap-5">
+        <div className="animate-fade-up-delay-2 grid w-full max-w-7xl grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div className="relative min-w-0 max-w-full overflow-hidden">
             <div
               aria-hidden
-              className="preview-glow pointer-events-none absolute -inset-8 rounded-[2rem] bg-white/[0.04] blur-2xl"
+              className="preview-glow pointer-events-none absolute inset-0 rounded-[2rem] bg-white/[0.04] blur-2xl sm:-inset-8 sm:rounded-[2rem]"
             />
 
             <div
               ref={previewRef}
-              className={`relative flex h-[min(62vh,640px)] w-full max-w-full flex-col overflow-hidden rounded-3xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] ${
+              className={`relative flex h-[min(52vh,420px)] w-full max-w-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-elevated)] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:h-[min(68vh,720px)] sm:rounded-3xl ${
                 dragging ? "border-white" : "border-[var(--line-strong)]"
               }`}
               onDragEnter={(e) => {
@@ -351,7 +351,7 @@ export function Hero() {
                     paused={isPaused}
                   />
                 ) : (
-                  <div className="relative flex h-full min-h-[min(54vh,560px)] flex-col items-center justify-center px-6 py-16 text-center">
+                  <div className="relative flex h-full min-h-[min(44vh,360px)] flex-col items-center justify-center px-6 py-12 text-center sm:min-h-[min(60vh,640px)] sm:py-16">
                     <div
                       aria-hidden
                       className="preview-grid pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -451,7 +451,7 @@ export function Hero() {
             )}
           </div>
 
-          <aside className="min-w-0 max-w-full overflow-y-auto rounded-3xl border border-[var(--line-strong)] bg-[var(--bg-elevated)] p-5 lg:max-h-[min(62vh,640px)]">
+          <aside className="min-w-0 max-w-full rounded-2xl border border-[var(--line-strong)] bg-[var(--bg-elevated)] p-5 sm:rounded-3xl lg:max-h-[min(68vh,720px)] lg:overflow-y-auto">
             <div className="mb-6 space-y-3">
               <input
                 ref={inputRef}
