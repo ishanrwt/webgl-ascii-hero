@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   title: "ASCII 3D",
   description:
     "Browser-based WebGL ASCII 3D preview. Original by Egor Shesternin (egorshest); browser features by Ishan (ishanrwt).",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
